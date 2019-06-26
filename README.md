@@ -13,6 +13,7 @@
 - swagger：http://localhost:8080/swagger-ui.html
     1. (避坑)实体类中，Integer/Long类型的属性加@ApiModelProperty时，必须要给example参数赋值，且值必须为数字类型。
 - mybatis-generator:MyBatisCodeGenerator
+
 ####TODO
 - 图片上传
 - 部署脚本
