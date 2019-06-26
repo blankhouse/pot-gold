@@ -3,16 +3,29 @@ package com.blankhouse.project.potgold.model;
 
 
 import com.blankhouse.project.potgold.enums.UserSexEnum;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
+@ApiModel("用户")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	@ApiModelProperty(value = "id",example = "1")
 	private Long id;
+
+	@ApiModelProperty(value = "姓名")
 	private String userName;
+
+	@ApiModelProperty(value = "密码")
 	private String passWord;
+
+	@ApiModelProperty(value = "性别")
 	private UserSexEnum userSex;
+
+	@ApiModelProperty(value = "昵称")
 	private String nickName;
 
 	public User() {
