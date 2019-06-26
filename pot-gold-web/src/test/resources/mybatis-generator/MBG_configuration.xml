@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="MySQLTables" targetRuntime="MyBatis3">
+        <commentGenerator type="com.blankhouse.project.potgold.tool.generator.MyCommentGenerator">
+        </commentGenerator>
+        <!-- 生发环境数据库配置:修改配置 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/pot_gold_db?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true"
+
+                        userId="root" password="12345678">
+
+            <!-- jdbc:mysql://localhost:3306/pot_gold_db?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true -->
+
+            <!-- jdbc:mysql://localhost:3306/pot_gold_db?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true&amp;serverTimezone=PRC&amp;useSSL=false -->
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--targetProject请使用绝对路径-->
+        <javaModelGenerator targetPackage="com.blankhouse.project.potgold.model"
+                            targetProject="pot-gold-web/target">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.blankhouse.project.potgold.mapper"
+                         targetProject="pot-gold-web/target">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.blankhouse.project.potgold.mapper"
+                             targetProject="pot-gold-web/target">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 示例 -->
+        <!--<table tableName="spread_web_" enableCountByExample="true"-->
+        <!--enableUpdateByExample="true" enableDeleteByExample="true"-->
+        <!--enableSelectByExample="true" selectByExampleQueryId="true"-->
+        <!--enableInsert="true" enableUpdateByPrimaryKey="true"-->
+        <!--enableDeleteByPrimaryKey="true" enableSelectByPrimaryKey="true">-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+
+        <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>-->
+        <!--</table>-->
+
+        <table tableName="users" enableCountByExample="true"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true"
+               enableInsert="true" enableUpdateByPrimaryKey="true"
+               enableDeleteByPrimaryKey="true" enableSelectByPrimaryKey="true">
+            <property name="useActualColumnNames" value="false"/>
+
+            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>
+        </table>
+
+
+    </context>
+</generatorConfiguration>
