@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.blankhouse.project.potgold.mapper")
-public class MybatisXmlApplication {
+public class GoldWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MybatisXmlApplication.class, args);
+		SpringApplication.run(GoldWebApplication.class, args);
 	}
 }
