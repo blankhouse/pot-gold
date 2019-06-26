@@ -41,11 +41,11 @@ public class UserMapperTest {
 	
 	@Test
 	public void testUpdate() throws Exception {
-		User user = userMapper.getOne(6l);
+		User user = userMapper.getOne(2l);
 		System.out.println(user.toString());
 		user.setNickName("neo");
 		userMapper.update(user);
-		Assert.assertTrue(("neo".equals(userMapper.getOne(6l).getNickName())));
+		Assert.assertTrue(("neo".equals(userMapper.getOne(2l).getNickName())));
 	}
 
 }
