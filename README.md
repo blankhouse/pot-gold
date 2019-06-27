@@ -19,3 +19,7 @@
 - 部署脚本
 - local dev uat 发布环境配置
 
+
+####最佳实践
+1. git pull --no-ff  =  git fetch + git merge --no-ff ,可以很好保存merge历史
+
