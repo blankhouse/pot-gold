@@ -3,7 +3,7 @@
 
 ####项目启动
 1. 执行sql脚本：SQL_Scripts/init.sql
-2. 测试数据库连接：UserMapperTest
+2. 测试数据库连接(mysql8.0版本)：UserMapperTest
 3. 项目启动类：GoldWebApplication.java
 
 ####项目目标
