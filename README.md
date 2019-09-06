@@ -3,7 +3,7 @@
 
 ####项目启动
 1. 执行sql脚本：SQL_Scripts/init.sql
-2. 测试数据库连接(mysql8.0版本,5.7也可以)：UserMapperTest
+2. 测试数据库连接(mysql8.0版本,5.7也可以)：UserMapperTest ,目前默认连接阿里云,可自行配置连本地库
 3. 项目启动类：GoldWebApplication.java
 
 ####项目目标
@@ -18,7 +18,6 @@
 ####TODO
 - 图片上传
 - 部署脚本
-- local dev uat 发布环境配置
 
 
 ####最佳实践
