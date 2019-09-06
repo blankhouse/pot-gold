@@ -13,7 +13,7 @@
 - swagger：http://localhost:8080/swagger-ui.html
     1. (避坑)实体类中，Integer/Long类型的属性加@ApiModelProperty时，必须要给example参数赋值，且值必须为数字类型。
 - mybatis-generator:MyBatisCodeGenerator
-- profile环境配置分离说明: 默认是aliyun环境(数据库连阿里云) 开发者可以自建环境目录,类比hujia-local
+- profile环境配置分离说明: 默认是aliyun环境(数据库连阿里云) 开发者可以自建环境目录,类比hujia-local, 暂未设置prod环境
 
 ####TODO
 - 图片上传
