@@ -24,7 +24,7 @@
 1. git pull --no-ff  =  git fetch + git merge --no-ff ,可以很好保存merge历史
 
 ####maven 打包命令 
-clean package -D skipTests=true -Paliyun
+- clean package -D skipTests=true -Paliyun
 
 
 
