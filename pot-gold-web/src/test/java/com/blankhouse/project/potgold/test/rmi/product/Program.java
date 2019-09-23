@@ -1,4 +1,4 @@
-package rmi.product;
+package com.blankhouse.project.potgold.test.rmi.product;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;

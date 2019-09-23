@@ -1,4 +1,4 @@
-package rmi.consumer;
+package com.blankhouse.project.potgold.test.rmi.consumer;
 
 import java.io.Serializable;
 

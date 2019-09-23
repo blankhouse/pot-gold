@@ -1,4 +1,4 @@
-package rmi.product;
+package com.blankhouse.project.potgold.test.rmi.product;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

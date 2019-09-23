@@ -1,4 +1,4 @@
-package proxy;
+package com.blankhouse.project.potgold.test.proxy;
 
 
 public class ProxyDemo {

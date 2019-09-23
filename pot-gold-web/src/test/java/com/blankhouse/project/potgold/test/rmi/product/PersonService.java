@@ -1,4 +1,4 @@
-package rmi.consumer;
+package com.blankhouse.project.potgold.test.rmi.product;
 
 
 import java.rmi.Remote;

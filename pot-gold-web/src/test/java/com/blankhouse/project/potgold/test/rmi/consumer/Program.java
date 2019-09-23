@@ -1,4 +1,4 @@
-package rmi.consumer;
+package com.blankhouse.project.potgold.test.rmi.consumer;
 
 import java.rmi.Naming;
 import java.util.List;
