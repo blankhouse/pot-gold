@@ -2,9 +2,10 @@
 
 
 #### 项目启动
-1. 执行sql脚本：SQL_Scripts/init.sql
-2. 测试数据库连接(mysql8.0版本,5.7也可以)：UserMapperTest ,目前默认连接阿里云,可自行配置连本地库
+1. 根目录 clean package -D skipTests=true
+2. 测试数据库连接：直接执行UserMapperTest ,目前默认连接阿里云
 3. 项目启动类：GoldWebApplication.java
+4. 可自行配置连本地库(需要执行sql脚本：SQL_Scripts/init.sql),mysql8.0版本,5.7也可以
 
 #### 项目目标
 - pdf上传，根据条件进行文字识别然后返回匹配的章节、段落
