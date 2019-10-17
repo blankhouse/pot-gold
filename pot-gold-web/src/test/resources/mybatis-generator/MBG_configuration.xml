@@ -47,7 +47,17 @@
         <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>-->
         <!--</table>-->
 
-        <table tableName="users" enableCountByExample="true"
+        <!--<table tableName="users" enableCountByExample="true"-->
+               <!--enableUpdateByExample="true" enableDeleteByExample="true"-->
+               <!--enableSelectByExample="true" selectByExampleQueryId="true"-->
+               <!--enableInsert="true" enableUpdateByPrimaryKey="true"-->
+               <!--enableDeleteByPrimaryKey="true" enableSelectByPrimaryKey="true">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>-->
+        <!--</table>-->
+
+        <table tableName="t_gold_task" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="true"
                enableInsert="true" enableUpdateByPrimaryKey="true"

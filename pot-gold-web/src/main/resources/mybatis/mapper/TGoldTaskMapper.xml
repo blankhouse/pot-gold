@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blankhouse.project.potgold.mapper.TGoldTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.blankhouse.project.potgold.model.TGoldTask" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="step" property="step" jdbcType="INTEGER" />
+    <result column="step_desc" property="stepDesc" jdbcType="VARCHAR" />
+    <result column="file_origin" property="fileOrigin" jdbcType="VARCHAR" />
+    <result column="file_output" property="fileOutput" jdbcType="VARCHAR" />
+    <result column="file_record" property="fileRecord" jdbcType="VARCHAR" />
+    <result column="exception" property="exception" jdbcType="VARCHAR" />
+    <result column="converted" property="converted" jdbcType="BIGINT" />
+    <result column="current" property="current" jdbcType="BIGINT" />
+    <result column="total" property="total" jdbcType="BIGINT" />
+    <result column="deleted" property="deleted" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_by" property="createBy" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.blankhouse.project.potgold.model.TGoldTask" extends="BaseResultMap" >
+    <result column="warning" property="warning" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, step, step_desc, file_origin, file_output, file_record, exception, converted, 
+    current, total, deleted, create_time, create_by, update_time, update_by
+  </sql>
+  <sql id="Blob_Column_List" >
+    warning
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.blankhouse.project.potgold.model.TGoldTaskExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_gold_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.blankhouse.project.potgold.model.TGoldTaskExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_gold_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.blankhouse.project.potgold.model.TGoldTaskExample" >
+    delete from t_gold_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.blankhouse.project.potgold.model.TGoldTask" >
+    insert into t_gold_task (id, step, step_desc, 
+      file_origin, file_output, file_record, 
+      exception, converted, current, 
+      total, deleted, create_time, 
+      create_by, update_time, update_by, 
+      warning)
+    values (#{id,jdbcType=BIGINT}, #{step,jdbcType=INTEGER}, #{stepDesc,jdbcType=VARCHAR}, 
+      #{fileOrigin,jdbcType=VARCHAR}, #{fileOutput,jdbcType=VARCHAR}, #{fileRecord,jdbcType=VARCHAR}, 
+      #{exception,jdbcType=VARCHAR}, #{converted,jdbcType=BIGINT}, #{current,jdbcType=BIGINT}, 
+      #{total,jdbcType=BIGINT}, #{deleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createBy,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=BIGINT}, 
+      #{warning,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"  parameterType="com.blankhouse.project.potgold.model.TGoldTask" >
+    insert into t_gold_task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="step != null" >
+        step,
+      </if>
+      <if test="stepDesc != null" >
+        step_desc,
+      </if>
+      <if test="fileOrigin != null" >
+        file_origin,
+      </if>
+      <if test="fileOutput != null" >
+        file_output,
+      </if>
+      <if test="fileRecord != null" >
+        file_record,
+      </if>
+      <if test="exception != null" >
+        exception,
+      </if>
+      <if test="converted != null" >
+        converted,
+      </if>
+      <if test="current != null" >
+        current,
+      </if>
+      <if test="total != null" >
+        total,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="warning != null" >
+        warning,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="step != null" >
+        #{step,jdbcType=INTEGER},
+      </if>
+      <if test="stepDesc != null" >
+        #{stepDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fileOrigin != null" >
+        #{fileOrigin,jdbcType=VARCHAR},
+      </if>
+      <if test="fileOutput != null" >
+        #{fileOutput,jdbcType=VARCHAR},
+      </if>
+      <if test="fileRecord != null" >
+        #{fileRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="exception != null" >
+        #{exception,jdbcType=VARCHAR},
+      </if>
+      <if test="converted != null" >
+        #{converted,jdbcType=BIGINT},
+      </if>
+      <if test="current != null" >
+        #{current,jdbcType=BIGINT},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=BIGINT},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="warning != null" >
+        #{warning,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.blankhouse.project.potgold.model.TGoldTaskExample" resultType="java.lang.Integer" >
+    select count(*) from t_gold_task
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_gold_task
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.step != null" >
+        step = #{record.step,jdbcType=INTEGER},
+      </if>
+      <if test="record.stepDesc != null" >
+        step_desc = #{record.stepDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileOrigin != null" >
+        file_origin = #{record.fileOrigin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileOutput != null" >
+        file_output = #{record.fileOutput,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileRecord != null" >
+        file_record = #{record.fileRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exception != null" >
+        exception = #{record.exception,jdbcType=VARCHAR},
+      </if>
+      <if test="record.converted != null" >
+        converted = #{record.converted,jdbcType=BIGINT},
+      </if>
+      <if test="record.current != null" >
+        current = #{record.current,jdbcType=BIGINT},
+      </if>
+      <if test="record.total != null" >
+        total = #{record.total,jdbcType=BIGINT},
+      </if>
+      <if test="record.deleted != null" >
+        deleted = #{record.deleted,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createBy != null" >
+        create_by = #{record.createBy,jdbcType=BIGINT},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateBy != null" >
+        update_by = #{record.updateBy,jdbcType=BIGINT},
+      </if>
+      <if test="record.warning != null" >
+        warning = #{record.warning,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_gold_task
+    set id = #{record.id,jdbcType=BIGINT},
+      step = #{record.step,jdbcType=INTEGER},
+      step_desc = #{record.stepDesc,jdbcType=VARCHAR},
+      file_origin = #{record.fileOrigin,jdbcType=VARCHAR},
+      file_output = #{record.fileOutput,jdbcType=VARCHAR},
+      file_record = #{record.fileRecord,jdbcType=VARCHAR},
+      exception = #{record.exception,jdbcType=VARCHAR},
+      converted = #{record.converted,jdbcType=BIGINT},
+      current = #{record.current,jdbcType=BIGINT},
+      total = #{record.total,jdbcType=BIGINT},
+      deleted = #{record.deleted,jdbcType=TINYINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      create_by = #{record.createBy,jdbcType=BIGINT},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      update_by = #{record.updateBy,jdbcType=BIGINT},
+      warning = #{record.warning,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_gold_task
+    set id = #{record.id,jdbcType=BIGINT},
+      step = #{record.step,jdbcType=INTEGER},
+      step_desc = #{record.stepDesc,jdbcType=VARCHAR},
+      file_origin = #{record.fileOrigin,jdbcType=VARCHAR},
+      file_output = #{record.fileOutput,jdbcType=VARCHAR},
+      file_record = #{record.fileRecord,jdbcType=VARCHAR},
+      exception = #{record.exception,jdbcType=VARCHAR},
+      converted = #{record.converted,jdbcType=BIGINT},
+      current = #{record.current,jdbcType=BIGINT},
+      total = #{record.total,jdbcType=BIGINT},
+      deleted = #{record.deleted,jdbcType=TINYINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      create_by = #{record.createBy,jdbcType=BIGINT},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      update_by = #{record.updateBy,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
